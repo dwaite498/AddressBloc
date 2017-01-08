@@ -8,15 +8,15 @@ class AddressBook
         @entries = []
     end
     
-    def remove_entry(name, phone_number, email)
+    def remove_entry(name, phone, email)
         delete_entry = nil
         
-        @entries.each do |entry|
-            if entry == entry.name
-                delete_entry = Entry
+        entries.each do |entry|
+            if name == entry.name && phone == entry.phone_number && email == entry.email
+                delete_entry = entry
             end
         end
-        entries.delete_at(index)
+        entries.delete(delete_entry)
     
     end
     

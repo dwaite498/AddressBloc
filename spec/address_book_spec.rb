@@ -29,10 +29,10 @@ RSpec.describe AddressBook do
             email_address = "augusta.king@lovelace.com"
             book.add_entry(name, phone_number, email_address)
              
-            expect(book.entries.size).to eq(2)
-            book.remove_entry.(name, phone_number, email_address)
-            expect(book.entries.size).to eq(2)
-            expect(book.entries.first.name).to eq("michael Faraday")
+            expect(book.entries.size).to eq 2
+            book.remove_entry(name, phone_number, email_address)
+            expect(book.entries.size).to eq 1
+            expect(book.entries.first.name).to eq("Michael Faraday")
         end
     end
         
