@@ -15,7 +15,8 @@ class MenuController
         puts "4 - Import entries from a CSV"
         puts "5 - Exit"
         puts "6 - View specific entry"
-        print "Enter your selection"
+        puts "7 - Annihiliate all entries"
+        print "Enter your selection: "
         
         selection = gets.to_i
         
@@ -45,7 +46,12 @@ class MenuController
                 system "clear"
                 view_select_entry
                 main_menu
+            when 7
+                system "clear"
+                remove_all
+                main_menu
                 
+
             else 
                 system "clear"
                 puts "Sorry, that is not a valid input. Please try again."
@@ -198,6 +204,30 @@ class MenuController
                 puts "#{selection} is not a valid input"
                 puts entry.to_s
                 search_submenu(entry)
+        end
+    end
+    
+    def remove_all
+       system "clear"
+       puts "Are you sure you wish to initiate the remove all protocol?"
+       puts "Y or N"
+       
+       selection = gets.chomp
+       
+        if selection == "N" || selection != "Y"
+           puts "You have not selected Y, operation terminated"
+           return
+        else
+            puts "You have chosen Y, annihilation begins now"
+            address_book.entries.each do |entry|
+                address_book.entries.delete(entry)
+            end
+            puts "All entries have been annihiliated"
+            sleep(2)
+            puts ". . ."
+            sleep(2)
+            puts "You stand in a desolate wasteland, the shattered remains of AddressBook stands before you. /n"
+            
         end
     end
 end
