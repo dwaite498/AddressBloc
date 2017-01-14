@@ -220,7 +220,7 @@ class MenuController
         else
             puts "You have chosen Y, annihilation begins now"
             address_book.entries.each do |entry|
-                address_book.entries.delete(entry)
+                entries.delete(entry)
             end
             puts "All entries have been annihiliated"
             sleep(2)
